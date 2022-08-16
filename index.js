@@ -108,40 +108,6 @@ console.log(tOrf)
 
 
 
-
-function endgame() {
-    if (out === true && outBot === true) {
-    winnerEl.innerText = "no one did win , The page will reload in 3sec"
-    } else  if (isAlive === true && sumBot > 21 && sum <= 21) {
-        winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
-    } else  if (isAliveBot === true && sumBot <= 21 && sum < sumBot) {
-            winnerEl.innerText = 'the bot win , The page will reload in 3sec'
-    } else if (isAliveBot === true && hasBlackJackBot === false && isAlive === false && hasBlackJack === false) {
-        winnerEl.innerText = "the bot win ! , The page will reload in 3sec"
-    } else if (isAlive === true && hasBlackJack === false && sum > sumBot) {
-        winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
-    } else if (hasBlackJack === true && hasBlackJackBot === true) {
-        winnerEl.innerText = ("Draw , The page will reload in 3sec")
-    }  else if (hasBlackJack === true && hasBlackJackBot === false) {
-        winnerEl.innerText = ("you are the winner , The page will reload in 3sec")
-    }  else if (hasBlackJack === false && hasBlackJackBot === true) {
-        winnerEl.innerText = ("The bot win , The page will reload in 3sec")
-    } else if (out === true && outBot === false) {
-        winnerEl.innerText = ("The bot win , The page will reload in 3sec")
-    } else if (out === false && outBot === true) {
-        winnerEl.innerText = ("you are the winner , The page will reload in 3sec")
-    }
-
-    
-    messageElBot.innerText = messageBot
-    sumElBot.innerText = "Sum: " + sumBot
-    cardsElBot.textContent = "Cards: "
-    for (let B = 0; B < cardsBot.length; B++) {
-    cardsElBot.innerText += ' ' + cardsBot[B]
-    
-}
-Threeseconds()
-}
 function Threeseconds() {
     setTimeout(reloadPage, 4000)
 }
@@ -154,6 +120,12 @@ function reloadPage() {
 
 
 function rendergamebot() {
+    
+    if (isAliveBot === true && hasBlackJackBot === false && tOrf === true && drawANewCardBot === false) {
+        let cardBot = getrandomnumber()
+        cardsBot.push (cardBot)
+        sumBot += cardBot
+    }
     if (sumBot < 21) {
         isAliveBot = true
     }
@@ -168,11 +140,6 @@ function rendergamebot() {
 
     }
 
-    if (isAliveBot === true && hasBlackJackBot === false && tOrf === true && drawANewCardBot === false) {
-        let cardBot = getrandomnumber()
-        cardsBot.push (cardBot)
-        sumBot += cardBot
-    }
     
 
 }
@@ -182,5 +149,41 @@ function rendergamebot() {
 
     
 
+
+function endgame() {
+    if (out === true && outBot === true) {
+    winnerEl.innerText = "no one did win , The page will reload in 3sec"
+    } else  if (isAlive === true && sumBot > 21 && sum <= 21) {
+        winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
+    } else  if (isAliveBot === true && sumBot <= 21 && sum < sumBot) {
+            winnerEl.innerText = 'the bot win , The page will reload in 3sec'
+    } else if (isAliveBot === true && out === true && hasBlackJack === false) {
+        winnerEl.innerText = "the bot win ! , The page will reload in 3sec"
+    } else if (isAlive === true && hasBlackJack === false && sum > sumBot) {
+        winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
+    } else if (hasBlackJack === true && hasBlackJackBot === true) {
+        winnerEl.innerText = ("Draw , The page will reload in 3sec")
+    }  else if (hasBlackJack === true && hasBlackJackBot === false) {
+        winnerEl.innerText = ("you are the winner , The page will reload in 3sec")
+    }  else if (hasBlackJack === false && hasBlackJackBot === true) {
+        winnerEl.innerText = ("The bot win , The page will reload in 3sec")
+    } else if (out === true && outBot === false) {
+        winnerEl.innerText = ("The bot win , The page will reload in 3sec")
+    } else if (out === false && outBot === true) {
+        winnerEl.innerText = ("you are the winner , The page will reload in 3sec")
+    } else if (isAlive === false && isAliveBot === false) {
+        winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
+    }
+
+    
+    messageElBot.innerText = messageBot
+    sumElBot.innerText = "Sum: " + sumBot
+    cardsElBot.textContent = "Cards: "
+    for (let B = 0; B < cardsBot.length; B++) {
+    cardsElBot.innerText += ' ' + cardsBot[B]
+    
+}
+Threeseconds()
+}
 
 
