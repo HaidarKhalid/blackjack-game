@@ -155,9 +155,9 @@ function endgame() {
     winnerEl.innerText = "no one did win , The page will reload in 3sec"
     } else  if (isAlive === true && sumBot > 21 && sum <= 21) {
         winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
-    } else  if (isAliveBot === true && sumBot <= 21 && sum < sumBot) {
+    } else  if (outBot === false && isAliveBot === true && sumBot <= 21 && sum < sumBot) {
             winnerEl.innerText = 'the bot win , The page will reload in 3sec'
-    } else if (isAliveBot === true && out === true && hasBlackJack === false) {
+    } else if (outBot === false && isAliveBot === true && out === true && hasBlackJack === false) {
         winnerEl.innerText = "the bot win ! , The page will reload in 3sec"
     } else if (isAlive === true && hasBlackJack === false && sum > sumBot) {
         winnerEl.innerText = 'you are the winner ! , The page will reload in 3sec'
